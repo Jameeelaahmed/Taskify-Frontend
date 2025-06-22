@@ -25,12 +25,11 @@ function Landing() {
     const { data: boards, loading, error } = useSelector((state) => state.boards);
 
     const [dir, setDir] = useState("ltr");
-
+    console.log(boards);
     const createdBoards = boards
         .filter((board) => String(board.owner) === String(userId))
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         .slice(0, 2);
-
     const involvedBoards = boards
         .filter(
             (board) =>

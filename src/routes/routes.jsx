@@ -12,70 +12,74 @@ const GuestRoute = lazy(() => import("../layouts/GuestRoute"));
 const Boards = lazy(() => import("../pages/Boards/Boards"));
 
 const AppRoutes = () => {
-    const routes = createBrowserRouter([
-        {
-            path: "/",
-            element: (
-                <Suspense fallback={<div>Loading...</div>}>
-                    <ProtectedRoute>
-                        <MainLayout />
-                    </ProtectedRoute>
-                </Suspense>
-            ),
-            children: [
-                {
-                    index: true,
-                    element: <Suspense fallback={<div>Loading...</div>}><LandingPage /></Suspense>,
-                },
-                {
-                    path: 'createdboardsPage',
-                    element: <Suspense fallback={<div>Loading...</div>}><Boards /></Suspense>
-                },
-                {
-                    path: 'involvedboardsPage',
-                    element: <Suspense fallback={<div>Loading...</div>}><Boards /></Suspense>
-                },
-                {
-                    element: <Suspense fallback={<div>Loading...</div>}><BoardLayout /></Suspense>,
-                    path: ":id",
-                    children: [
-                        {
-                            path: "tasks",
-                            element: <Suspense fallback={<div>Loading...</div>}><TasksPage /></Suspense>,
-                        },
-                        {
-                            path: "leader-board",
-                            element: <Suspense fallback={<div>Loading...</div>}><LeaderBoard /></Suspense>,
-                        },
-                        {
-                            path: "dashboard",
-                            element: <Suspense fallback={<div>Loading...</div>}><AdminDashboard /></Suspense>,
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            element: <Suspense fallback={<div>Loading...</div>}><GuestRoute /></Suspense>,
-            children: [
-                {
-                    index: true,
-                    path: "/login",
-                    element: <Suspense fallback={<div>Loading...</div>}><AuthenticationPage type="login" /></Suspense>,
-                },
-                {
-                    path: "/register",
-                    element: <Suspense fallback={<div>Loading...</div>}><AuthenticationPage type="register" /></Suspense>,
-                },
-                {
-                    path: "/forget-password",
-                    element: <Suspense fallback={<div>Loading...</div>}><AuthenticationPage type="forgetPassword" /></Suspense>,
-                },
-            ],
-        },
-    ]);
+    try {
+        const routes = createBrowserRouter([
+            {
+                path: "/",
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ProtectedRoute>
+                            <MainLayout />
+                        </ProtectedRoute>
+                    </Suspense>
+                ),
+                children: [
+                    {
+                        index: true,
+                        element: <Suspense fallback={<div>Loading...</div>}><LandingPage /></Suspense>,
+                    },
+                    {
+                        path: 'createdboardsPage',
+                        element: <Suspense fallback={<div>Loading...</div>}><Boards /></Suspense>
+                    },
+                    {
+                        path: 'involvedboardsPage',
+                        element: <Suspense fallback={<div>Loading...</div>}><Boards /></Suspense>
+                    },
+                    {
+                        element: <Suspense fallback={<div>Loading...</div>}><BoardLayout /></Suspense>,
+                        path: ":id",
+                        children: [
+                            {
+                                path: "tasks",
+                                element: <Suspense fallback={<div>Loading...</div>}><TasksPage /></Suspense>,
+                            },
+                            {
+                                path: "leader-board",
+                                element: <Suspense fallback={<div>Loading...</div>}><LeaderBoard /></Suspense>,
+                            },
+                            {
+                                path: "dashboard",
+                                element: <Suspense fallback={<div>Loading...</div>}><AdminDashboard /></Suspense>,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                element: <Suspense fallback={<div>Loading...</div>}><GuestRoute /></Suspense>,
+                children: [
+                    {
+                        path: "/login",
+                        element: <Suspense fallback={<div>Loading...</div>}><AuthenticationPage type="login" /></Suspense>,
+                    },
+                    {
+                        path: "/register",
+                        element: <Suspense fallback={<div>Loading...</div>}><AuthenticationPage type="register" /></Suspense>,
+                    },
+                    {
+                        path: "/forget-password",
+                        element: <Suspense fallback={<div>Loading...</div>}><AuthenticationPage type="forgetPassword" /></Suspense>,
+                    },
+                ],
+            },
+        ]);
+        return <RouterProvider router={routes} />;
+    } catch (e) {
+        console.error("❌ Router error:", e);
+    }
 
-    return <RouterProvider router={routes} />;
+
 };
 
 export default AppRoutes;
