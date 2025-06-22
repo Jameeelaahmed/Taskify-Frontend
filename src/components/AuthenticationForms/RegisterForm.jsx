@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 function RegisterForm() {
     const [registered, setRegistered] = useState(false);
     const [pendingUser, setPendingUser] = useState(null);
+    const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
     const {
         register,
@@ -19,7 +20,7 @@ function RegisterForm() {
 
     const handleSubmit = async ({ name, email, password }) => {
         try {
-            const res = await fetch('/api/users', {
+            const res = await fetch(`${baseUrl}/api/users`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password })
