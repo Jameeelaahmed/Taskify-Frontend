@@ -33,6 +33,8 @@
 @media (max-width: 512px) {
   .modal {
     width: 360px;
+    min-width: unset;
+    max-width: 98vw;
   }
 }
 @media (max-width: 991px) {
