@@ -36,7 +36,7 @@ function RegisterForm() {
                 <>
                     <div className={`${styles.imageFormContainer}`}>
                         <div className={`${styles.imageContainer}`}>
-                            <img src="/images/login bg.jpg" alt="Register" />
+                            <img src="/login bg.jpg" alt="Register" />
                         </div>
                         <form
                             className={`${styles.formContainer}`}

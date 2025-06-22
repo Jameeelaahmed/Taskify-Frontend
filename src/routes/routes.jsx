@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Suspense, lazy } from "react";
-const AuthenticationPage = lazy(() => import("../pages/"));
+const AuthenticationPage = lazy(() => import("../pages/AuthenticationPage/Authentication"));
 const LeaderBoard = lazy(() => import("../pages/LeaderBoard/LeaderBoard"));
 const TasksPage = lazy(() => import("../pages/TasksPage/TasksPage"));
 const MainLayout = lazy(() => import("../layouts/MainLayout"));

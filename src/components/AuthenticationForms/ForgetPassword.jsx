@@ -37,7 +37,7 @@ function ForgetPassword() {
             ) : (
                 <div className={`${styles.imageFormContainer}`}>
                     <div className={`${styles.imageContainer}`}>
-                        <img src="/images/forget.png" alt="Register" />
+                        <img src="/forget.png" alt="Register" />
                     </div>
 
                     <form
