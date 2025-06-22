@@ -20,11 +20,12 @@ function RegisterForm() {
 
     const handleSubmit = async ({ name, email, password }) => {
         try {
-            const res = await fetch(`${baseUrl}/api/users`, {
+            const res = await fetch(`${baseUrl}/users`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password })
             });
+            console.log(res);
 
             if (res.status === 201) {
                 await sendOTP(email);
