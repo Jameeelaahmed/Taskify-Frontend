@@ -19,13 +19,24 @@ function RegisterForm() {
 
     const handleSubmit = async ({ name, email, password }) => {
         try {
-            await sendOTP(email);
-            setPendingUser({ name, email, password });
-            setRegistered(true);
-        } catch (error) {
-            setError("root", {
-                message: error.message,
+            const res = await fetch('/api/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password })
             });
+
+            if (res.status === 201) {
+                await sendOTP(email);
+                setPendingUser({ name, email, password });
+                setRegistered(true);
+            } else if (res.status === 409) {
+                setError("root", { message: "This email is already registered. Please log in." });
+            } else {
+                const data = await res.json();
+                setError("root", { message: data.message || "Registration failed." });
+            }
+        } catch (error) {
+            setError("root", { message: error.message });
         }
     };
     return (
