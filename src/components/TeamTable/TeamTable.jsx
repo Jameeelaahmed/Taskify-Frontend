@@ -1,9 +1,11 @@
 import styles from './TeamTable.module.css'
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
+
 function createTableData(members) {
     return members.map((member, index) => {
         return {
+            id: member.id || member._id || index, // Use unique id if available
             rank: index + 1,
             name: member.name || member.email || '',
             score: member.score || 0, // Default to 0 if score is not defined
@@ -27,8 +29,7 @@ function TeamTable({ boardMembers }) {
 
     useEffect(() => {
         fetchTeamMembers();
-    }, [boardMembers, boardMembers]);
-
+    }, [boardMembers]);
 
     if (!members || members.length === 0) {
         return <p>{t("No members found")}</p>;
@@ -46,7 +47,7 @@ function TeamTable({ boardMembers }) {
                 </thead>
                 <tbody>
                     {members.map((row) => (
-                        <tr key={row.rank} className={styles.tableBodyRow}>
+                        <tr key={row.id} className={styles.tableBodyRow}>
                             <td className={styles.tableBodyCell}>{row.rank}</td>
                             <td className={styles.tableBodyCell}>
                                 <div className={styles.avatarWrapper}>
@@ -66,5 +67,3 @@ function TeamTable({ boardMembers }) {
         </div>
     )
 }
-
-export default TeamTable
