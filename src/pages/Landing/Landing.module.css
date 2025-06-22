@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+.landing_page {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.welcomeText {
+  width: 100%;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--base-color);
+  margin-bottom: 10px;
+  text-align: center;
+  top: 100px;
+  /* left: 50%;
+  transform: translateX(-40%); */
+  text-align: center;
+  position: absolute;
+  font-family: "Caveat", sans-serif;
+  color: var(--lilac-color);
+  font-weight: bold;
+}
+
+.landing_content {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing_page .section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.landing_page .typingText {
+  font-family: "Mona Sans", sans-serif;
+  font-size: 40px;
+  width: 380px;
+}
+
+.landing_content .typingText strong:first-child {
+  color: #c4b5fd;
+}
+
+.landing_content .typingText strong:last-child {
+  color: var(--lilac-color);
+}
+
+.cards_section {
+  margin: 20px;
+  width: fit-contents;
+}
+
+.cards_section .card {
+  margin: 20px 0;
+}
+
+.cards_section > p {
+  width: fit-content;
+  color: #c4b5fd;
+}
+
+.landing_page button {
+  position: relative;
+  top: 5px;
+  background-color: var(--transparent);
+  color: var(--base-color);
+  border: none;
+  outline: none;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-main);
+  border: var(--lilac-border);
+  margin: 10px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+[dir="ltr"] .landing_page button .icon {
+  margin-left: 10px;
+}
+[dir="rtl"] .landing_page button .icon {
+  margin-right: 10px;
+}
+
+.landing_page button:hover .icon {
+  transform: translateX(5px);
+  animation: arrow-move 0.8s infinite;
+}
+
+@keyframes arrow-move {
+  0% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+.logo {
+  font-family: "Caveat", sans-serif;
+  font-size: 60px;
+  color: var(--lilac-color);
+  font-weight: bold;
+}
+
+.boardName {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.img {
+  width: 370px;
+}
+
+@media screen and (max-width: 1024px) {
+  .landing_page {
+    margin-top: 50px;
+  }
+  .landing_content {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .landing_page .section {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .landing_page .typingText {
+    font-size: 28px;
+    width: auto;
+    text-align: center;
+  }
+
+  .landing_page button {
+    margin: 20px auto;
+  }
+
+  .cards_section {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards_section > p {
+    text-align: center;
+  }
+
+  .img {
+    width: 300px;
+  }
+  .welcomeText {
+    top: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section:last-child {
+    flex-direction: column;
+  }
+  .landing_page {
+    margin-top: 50px;
+  }
+  .landing_page .typingText {
+    font-size: 24px;
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+
+  .landing_page button {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .boardName {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .img {
+    width: 250px;
+  }
+  .welcomeText {
+    top: 0px;
+  }
+}

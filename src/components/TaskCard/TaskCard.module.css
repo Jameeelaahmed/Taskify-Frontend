@@ -1,0 +1,255 @@
+.mainContainer {
+  position: relative;
+  box-shadow: var(--shadow);
+  background-color: var(--transperant);
+  border-radius: var(--border-radius-main);
+  border: var(--lilac-border);
+}
+.icon {
+  position: absolute;
+  top: 30px;
+  cursor: pointer;
+}
+
+[dir="rtl"] .icon {
+  left: 20px;
+}
+
+[dir="ltr"] .icon {
+  right: 20px;
+}
+
+.taskContainer {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  /* cursor: pointer !important; */
+  cursor: grab;
+  transition: box-shadow 0.2s, background-color 0.2s, transform 0.2s;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+.avatar {
+  padding: 10px;
+  border-radius: 100%;
+  background-color: var(--transperant);
+  box-shadow: var(--shadow);
+}
+
+.dragging {
+  box-shadow: 0 4px 12px var(--shadow-color, rgba(162, 89, 255, 0.15));
+  background-color: var(--lilac-color, #6c2eb7); /* Use your dark purple */
+  color: #fff;
+  /* Add a slight scale for feedback */
+  transform: scale(1.03);
+  transition: box-shadow 0.2s, background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  transition: var(--main-trans);
+
+  &:hover {
+    color: rgb(255, 155, 119);
+    transform: scale(1.2);
+  }
+}
+
+.iconContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  width: 100%;
+  padding-inline: 20px;
+  padding-bottom: 15px;
+}
+
+.title {
+  margin: 0 10px;
+  width: 180px; /* or any fixed width you prefer */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-size: 1.4rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.members {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  position: relative;
+}
+
+.member_circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 2px solid white;
+  position: relative;
+  z-index: 1;
+}
+
+[dir="ltr"] .member_circle {
+  margin-left: -10px; /* Creates overlap */
+}
+
+[dir="rtl"] .member_circle {
+  margin-right: -10px; /* Creates overlap */
+}
+
+[dir="ltr"] .member_circle:first-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .member_circle:first-child {
+  margin-right: 0;
+}
+
+/** DELETE MODAL */
+
+.deleteModal {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete_icon {
+  color: var(--main-color);
+  font-size: 30px;
+  background-color: var(--lilac-color);
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.deleteModal p {
+  font-size: 18px;
+  color: var(--lilac-color);
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.deleteModal span {
+  text-align: center;
+  color: var(--lilac-color);
+}
+
+/* ???? NEON BUTTON ?????? */
+
+.buttons {
+  margin-top: 25px;
+}
+
+.main_button {
+  position: relative;
+  padding: 0.75em 1.5em;
+  border-radius: var(--border-radius-main);
+  border: 2px solid var(--lilac-color);
+  font-size: 0.938em;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.125em;
+  background: transparent;
+  color: var(--lilac-color);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.3s ease-in-out;
+  width: 50%;
+}
+
+.main_button:hover {
+  background: var(--transparent);
+  box-shadow: 0 0 20px 5px var(--lilac-color);
+  color: #ffffff;
+}
+
+.main_button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--lilac-color),
+    transparent
+  );
+  box-shadow: 0 0 50px 30px var(--lilac-color);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.main_button:hover::before {
+  animation: neon-shine 0.6s 0s linear;
+}
+
+@keyframes neon-shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.main_button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.2s ease-in;
+}
+
+/* ???? NEON BUTTON ?????? */
+
+/* ??? CLOSE BUTTON */
+
+.close {
+  padding: 0.75em 1.5em;
+  border-radius: var(--border-radius-main);
+  font-size: 0.938em;
+  border: none;
+  width: 50%;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.125em;
+  background: transparent;
+  color: var(--lilac-color);
+  cursor: pointer;
+}
+
+/* ??? CLOSE BUTTON */

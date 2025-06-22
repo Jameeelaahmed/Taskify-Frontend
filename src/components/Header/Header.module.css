@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap");
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  align-items: center;
+  padding: 8px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+  & > div {
+    @media (max-width: 769px) {
+      display: none;
+    }
+  }
+}
+
+.header.scrolled {
+  background: var(--main-color);
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header button {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  outline: none;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-main);
+  border: var(--lilac-border);
+  border-width: 2px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: var(--main-trans);
+
+  &:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+  }
+}
+
+.logo {
+  font-family: "Caveat", sans-serif;
+  font-size: 38px;
+  color: var(--lilac-color);
+  font-weight: bold;
+}
+
+.header_link {
+  font-size: 17px;
+  color: var(--white);
+}
+
+.lang {
+  text-transform: uppercase;
+}
+
+.signOut {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.bars {
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 15px;
+  transition: var(--main-trans);
+  z-index: 10000000000;
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+  &.rotateIcon {
+    transform: rotate(180deg);
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.header a:nth-child(2),
+.header a:last-child {
+  margin: 0 15px;
+}

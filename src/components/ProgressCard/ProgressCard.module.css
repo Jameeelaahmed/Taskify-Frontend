@@ -1,0 +1,76 @@
+.progressCard {
+  border-radius: var(--border-radius-main);
+  background-image: var(--transperant);
+  box-shadow: var(--shadow);
+  padding: var(--section-padding);
+  cursor: pointer;
+  transition: var(--main-trans);
+  flex: 1;
+
+  &:dir(rtl) {
+    text-align: right;
+  }
+
+  .progressCardTitle {
+    position: relative;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+
+    span {
+      display: inline-block;
+      margin-right: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      &:dir(rtl) {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &.green .progressCardTitle {
+    span {
+      background-color: var(--done-color);
+    }
+  }
+
+  &.blue .progressCardTitle {
+    span {
+      background-color: var(--doing-color);
+    }
+  }
+
+  &.red .progressCardTitle {
+    span {
+      background-color: #ffb480;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 992px) {
+    padding: 30px;
+    .progressCardTitle {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    .progressCardTitle {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  }
+}

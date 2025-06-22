@@ -1,0 +1,259 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+:root {
+  /* Dark Theme (Default) */
+  --main-color: #0e1218;
+  --secondary-color: rgb(148, 118, 214);
+  --lilac-color: rgb(148, 118, 214);
+  --shadow: rgba(0, 0, 0, 0.548) 0px 7px 29px 0px;
+  --transperant: rgba(255, 255, 255, 0);
+  --base-color: white;
+  --main-font-size: 38px;
+  --main-trans: 0.3s;
+  --border-radius-main: 20px;
+  --border-radius-sm: 8px;
+  --section-padding: 60px;
+  --section-padding-sm: 20px;
+  --button-hover-color: blue;
+  --todo-color: #c3a0ff;
+  --doing-color: #ffb6e6;
+  --done-color: #a0ffe6;
+  --lilac-border: 5px solid rgb(148, 118, 214);
+  --text-color: #ffffff;
+  --background-gradient: radial-gradient(
+    circle at center,
+    rgb(36 25 73) 0%,
+    rgb(25 18 54) 30%,
+    oklab(0.17 0.01 -0.04) 100%
+  );
+  /* --background-gradient: radial-gradient(
+    circle at center,
+    rgb(36, 25, 73) 0%,
+    rgb(25, 18, 54) 30%,
+    rgb(12, 9, 24) 100%
+  ); */
+
+  --hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  --label-color: #c0c0c0;
+  --input-color: #2d2d42;
+  --table-bg: 0e1218;
+  --createdBackground: linear-gradient(to bottom, #d86dd8, #b451a5);
+  --createdShadow: 0 0 6px #d86dd8, 0 0 12px #b451a5, 0 0 18px #b451a5;
+  --involvedBackground: linear-gradient(to bottom, #5ee7df, #b490ca);
+  --involvedShadow: 0 0 6px #5ee7df, 0 0 12px #b490ca, 0 0 18px #b490ca;
+}
+
+.light {
+  --main-color: rgb(148, 118, 214);
+  --secondary-color: #8251a1;
+  --text-color: #4c3f68;
+  --text-secondary: #756a8d;
+  --table-bg: var(--main-color);
+  --primary-color: #c6b8e9;
+  --button-hover-color: #b0a3db;
+  --lilac-border: 5px solid rgb(148, 118, 214);
+  --todo-color: #9b7ede;
+  --doing-color: #ff80b3;
+  --done-color: #4ddbb2;
+  --base-color: #0e1218;
+  --background-gradient: radial-gradient(
+    ellipse at bottom,
+    #fdfcff 0%,
+    #f3f3f6 40%,
+    #f6f5f9 100%
+  );
+
+  --hover-shadow: 0 4px 8px rgba(227, 224, 224, 0.8);
+  --shadow: 0 6px 15px rgba(158, 139, 197, 0.627);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: 1px solid rgba(214, 203, 235, 0.4);
+  --glass-shadow: 0 10px 35px rgba(156, 139, 197, 0.15);
+  --createdBackground: linear-gradient(to bottom, #ff3c7b, #a259ff);
+  --createdShadow: 0 0 8px rgba(255, 60, 123, 0.7),
+    0 0 16px rgba(162, 89, 255, 0.5), 0 0 24px rgba(162, 89, 255, 0.3);
+  --involvedBackground: linear-gradient(to bottom, #5a6cff, #a259ff);
+  --involvedShadow: 0 0 8px rgba(90, 108, 255, 0.7),
+    0 0 16px rgba(162, 89, 255, 0.5), 0 0 24px rgba(162, 89, 255, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:focus {
+  outline: none;
+}
+
+body {
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  transition: background 0.3s ease, color 0.3s ease;
+  /* Add position relative for pseudo-elements */
+  position: relative;
+  /* Ensure body takes full height */
+  min-height: 100vh;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-gradient);
+  background-size: cover;
+  z-index: -1; /* Place behind content */
+}
+
+html {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 3px !important;
+  height: 3px !important;
+}
+::-webkit-scrollbar-track {
+  background: var(--secondary-color) !important;
+  border-radius: 10px !important;
+  margin: 5px !important;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--lilac-color) !important;
+  border-radius: 10px !important;
+  border: 3px solid transparent !important;
+  background-clip: content-box !important;
+  transition: var(--main-trans) !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover-color) !important;
+}
+
+/* Background Effects */
+.background-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 15% 50%,
+      rgba(103, 126, 234, 0.1) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(118, 75, 162, 0.1) 0%,
+      transparent 25%
+    );
+  animation: mesh-move 20s infinite alternate;
+}
+
+.dots-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    rgba(103, 126, 234, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+  animation: dots-scroll 100s linear infinite;
+}
+
+.geometric-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      rgba(103, 126, 234, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(103, 126, 234, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-pulse 8s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes mesh-move {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(2deg);
+  }
+}
+
+@keyframes dots-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+@keyframes grid-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: var(--lilac-color) !important; /* Your custom green */
+  color: white !important; /* Optional: Ensure text stays white */
+}
+.Toastify__close-button {
+  color: white;
+}
+
+/* Layout */
+.container {
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+::-ms-reveal {
+  filter: invert(100%);
+}
