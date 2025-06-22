@@ -95,3 +95,9 @@
 .header a:last-child {
   margin: 0 15px;
 }
+
+@media (max-width: 769px) {
+  .header {
+    display: none;
+  }
+}
