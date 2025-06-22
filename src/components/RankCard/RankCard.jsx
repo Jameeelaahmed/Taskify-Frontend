@@ -5,23 +5,23 @@ function RankCard() {
         {
             rank: "2nd",
             name: "Participant 2",
-            img: "/public/second.webp",
+            img: "/second.webp",
             heightClass: "second",
-            bg: "/public/bg1.png",
+            bg: "/bg1.png",
         },
         {
             rank: "1st",
             name: "Participant 1",
-            img: "/public/first.webp",
+            img: "/first.webp",
             heightClass: "first",
-            bg: "/public/bg2.webp",
+            bg: "/bg2.webp",
         },
         {
             rank: "3rd",
             name: "Participant 3",
-            img: "/public/third.webp",
+            img: "/third.webp",
             heightClass: "third",
-            bg: "/public/bg3.jpg",
+            bg: "/bg3.jpg",
         },
     ];
 
