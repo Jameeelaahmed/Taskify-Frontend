@@ -54,6 +54,7 @@
 
 .buttons {
   margin-top: 25px;
+  display: flex;
 }
 
 .main_button {
@@ -145,3 +146,17 @@
 }
 
 /* ??? CLOSE BUTTON */
+
+@media (max-width: 512px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .close {
+    width: 100%;
+  }
+
+  .main_button {
+    width: 100%;
+  }
+}
